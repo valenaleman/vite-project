@@ -1,5 +1,20 @@
 import React from 'react';
 import NavbarComponent from './components/NavbarComponent';
+import Card from './components/Card';
+import Contador from './components/Contador';
+import { useState } from 'react';
+
+const MostrarState = () => {
+  const [buttonText, setButtonText] = useState('Apreta en este boton');
+
+  return (
+    <div>
+      <button onClick={() => setButtonText('Gracias por hacer click en este boton')}>
+      {buttonText}
+      </button>
+    </div>
+  )
+}
 
 function App() {
   const products = [
@@ -9,7 +24,7 @@ function App() {
   ]
 
 return (
-    <div>
+    <div className='container'>
       <NavbarComponent />
       <h1>Productos de nuestra pañalera</h1>
     <ol>
@@ -31,6 +46,13 @@ return (
         )
         })}
     </ul>
+    <h1>Imagenes de nuestros productos</h1>
+        <Card
+        image='https://kinsta.com/es/wp-content/uploads/sites/8/2020/10/tipos-de-archivos-de-imagen.png'
+        pañalesuno='Babysec - Ultrasec (60 pañales, para peso: 8,5 - 12 kg)' /> 
+        <MostrarState />
+        <Contador />
+        <Card description="Dirección: Av. Piedra Buena 4978 Villa Lugano, CABA, Argentina" />
     </div>
   )
 }
